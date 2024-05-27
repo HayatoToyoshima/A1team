@@ -11,7 +11,7 @@
             <tr>
                 <th>費用</th>
                 <th>金額</th>
-                <th>日付</th>
+                <th>登録日付</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -21,13 +21,13 @@
                 <td th:text="${expense.amount}+円">金額</td>
                 <td th:text="${#dates.format(expense.date, 'yyyy-MM-dd')}">日付</td>
                 <td>
-                    <a th:href="@{/expense/edit/{id}(id=${expense.id})}">更新</a>
+                    <a th:href="@{/expense/edit/{id}(id=${expense.id})}"><button>更新</button></a>
                     <a th:href="@{/expense/delete/{id}(id=${expense.id})}" 
-                       onclick="return confirm('本当に削除しますか？');">削除</a>
+                       onclick="return confirm('本当に削除しますか？');"><button>削除</button></a>
                 </td>
             </tr>
         </tbody>
     </table>
-    <a href="/expense/new">新規登録</a>
+    <a href="/expense/new"><button>新規登録</button></a>
 </body>
 </html>

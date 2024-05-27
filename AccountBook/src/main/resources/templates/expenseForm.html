@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
 </head>
 <body>
-    <a href="/">戻る</a>
+    <a href="/"><button>戻る</button></a>
     <h1>家計簿</h1>
     <form th:action="@{/expense}" th:object="${expense}" method="post">
         <input type="hidden" th:field="*{id}"/>
@@ -18,7 +18,7 @@
             <input type="number" min="0" th:field="*{amount}" required /><small>円</small>
         </div>
         <div>
-            <label>日付:</label>
+            <label>登録日付:</label>
             <input type="date" th:field="*{date}" required />
         </div>
         <div>
