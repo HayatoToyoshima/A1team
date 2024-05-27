@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>家計簿</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+    <h1>家計簿</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>費用</th>
+                <th>金額</th>
+                <th>日付</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="expense : ${expenses}">
+                <td th:text="${expense.name}">費用</td>
+                <td th:text="${expense.amount}+円">金額</td>
+                <td th:text="${#dates.format(expense.date, 'yyyy-MM-dd')}">日付</td>
+                <td>
+                    <a th:href="@{/expense/edit/{id}(id=${expense.id})}">更新</a>
+                    <a th:href="@{/expense/delete/{id}(id=${expense.id})}" 
+                       onclick="return confirm('本当に削除しますか？');">削除</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/expense/new">新規登録</a>
+</body>
+</html>
